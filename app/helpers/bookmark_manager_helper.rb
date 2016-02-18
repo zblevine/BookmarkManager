@@ -1,0 +1,2 @@
+module BookmarkManagerHelper
+end
