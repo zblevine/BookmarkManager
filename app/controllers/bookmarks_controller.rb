@@ -4,7 +4,11 @@ class BookmarksController < ApplicationController
   end
 
   def index
-  	@bookmarks = Bookmark.all
+    if params[:tag].present?
+     @bookmarks = Bookmark.where({:tag => "#{params[:tag]}"})
+    else
+  	 @bookmarks = Bookmark.all
+    end
   end
 
   def create
@@ -18,6 +22,6 @@ class BookmarksController < ApplicationController
 
   private
   	def bk_params
-  		params.require(:bookmark).permit(:url, :title)
+  		params.require(:bookmark).permit(:url, :title, :tag)
   	end
 end

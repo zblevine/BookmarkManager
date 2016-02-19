@@ -1,11 +1,10 @@
 <div class="center jumbotron">
-	<h1>Bookmarks <% link_to "Home", root_path, class: "btn btn-lg btn-primary" %></h1>
+	<h1>Bookmarks</h1>
 
 	<table>
 	<% @bookmarks.each do |bk| %>
 		<tr>
 			<td><%= link_to bk.title, bk.url, class: "btn btn-lg btn-primary" %></td>
-			<td><button type="button">Tag</button></td>
 			<td><button type="button">Remove</button></td>
 		</tr>
 	<% end %>
@@ -13,4 +12,5 @@
 
 	
 </div>
+<form action="/bkmk" method="get">Search by Tag:<br><input type="text" name="tag"><br><input type="submit" value="Search"></form>
 
